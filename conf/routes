@@ -8,6 +8,7 @@ module:testrunner
 
 
 GET     /                                       App.Index
+GET     /App/Hello                              App.Hello
 
 # players view
 GET     /player                                 Player.Index
