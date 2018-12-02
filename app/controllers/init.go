@@ -1,19 +1,10 @@
 package controllers
 
-import (
-	"test_app/app/models"
+import "github.com/revel/revel"
 
-	"github.com/revel/revel"
-)
-
-// application interceptor, it called only once when application begin
 func init() {
-	println("init")
-	revel.OnAppStart(models.InitDB)
-	revel.InterceptFunc(checkUser, revel.BEFORE, &App{})
-}
-
-func checkUser(c *revel.Controller) revel.Result {
-	println("checkUser")
-	return nil
+	revel.OnAppStart(InitDB) // invoke InitDB function before
+	revel.InterceptMethod((*GormController).Begin, revel.BEFORE)
+	revel.InterceptMethod((*GormController).Commit, revel.AFTER)
+	revel.InterceptMethod((*GormController).Rollback, revel.FINALLY)
 }

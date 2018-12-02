@@ -6,7 +6,7 @@ import (
 
 // App Structure
 type App struct {
-	*revel.Controller
+	GormController
 }
 
 // Before is interceptor called before method
