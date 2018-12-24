@@ -11,6 +11,46 @@
 </header>
 
 <div class="container">
+  <div>
+    <a href="{{url "App.Index"}}">トップ</a>
+  </div>
+  <br />
+  <div class="row">
+    <form action="{{url "Player.Create"}}" method="POST">
+      <button type="submit" >create player!</button>
+    </form>
+  </div>
+  <br />
+  <div class="row">
+   <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>BirthDay</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .players}}
+        <tr>
+          <td>{{.ID}}</td>
+          <td>
+            <a href="/player/{{.ID}}" method="GET">{{.Name}}</a>
+          </td>
+          <td>{{.Age}}</td>
+          <td>{{.Birthday.Format "2006-01-02"}}</td>
+          <td>
+            <form action="/player/{{.ID}}/delete" method="POST">
+              <button>DO</button>
+            </form>
+          </td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
   <div class="row">
     <div class="span6">
       {{template "flash.html" .}}

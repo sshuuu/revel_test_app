@@ -1,0 +1,22 @@
+{
+  "name": "test_app",
+  "version": "1.0.0",
+  "description": "A high-productivity web framework for the [Go language](http://www.golang.org/).",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sshuuu/revel_test_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sshuuu/revel_test_app/issues"
+  },
+  "homepage": "https://github.com/sshuuu/revel_test_app#readme"
+}

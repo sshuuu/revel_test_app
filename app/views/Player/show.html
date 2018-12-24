@@ -1,0 +1,42 @@
+{{set . "title" "Player Show"}}
+{{template "header.html" .}}
+
+<header class="jumbotron" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+      <h1>{{.player.Name}}のページ</h1>
+      <p></p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div>
+    <a href="{{url "Player.Index"}}">プレイヤー一覧</a>
+  </div>
+  <br />
+  <div dlass="row">
+    <table>
+      <tr>
+        <th width="100">name</th>
+        <td>{{.player.Name}}</td>
+      </tr>
+      <tr>
+        <th width="100">age</th>
+        <td>{{.player.Age}}</td>
+      </tr>
+      <tr>
+        <th width="100">birthday</th>
+        <td>{{.player.Birthday.Format "2006-01-02"}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

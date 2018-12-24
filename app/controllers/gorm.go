@@ -24,7 +24,7 @@ type GormController struct {
 // Gdb can be used for jobs
 var Gdb *gorm.DB
 
-// InitDB initializes the database
+// InitDB initializes the database.
 func InitDB() {
 	var err error
 	var dsn = os.Getenv("REVELAPP_DBUSER") +
@@ -38,6 +38,7 @@ func InitDB() {
 		println("FATAL", err)
 		panic(err)
 	}
+	autoMigrate()
 	// unique index if need
 	//Gdb.Model(&models.User{}).AddUniqueIndex("idx_user_name", "name")
 }

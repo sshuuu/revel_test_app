@@ -8,10 +8,13 @@ module:testrunner
 
 
 GET     /                                       App.Index
-GET     /Hello                              App.Hello
+GET     /Hello                                  App.Hello
 
 # players view
 GET     /player                                 Player.Index
+GET     /player/:id                             Player.Show
+POST    /player/create                          Player.Create
+POST    /player/:id/delete                      Player.Delete
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
